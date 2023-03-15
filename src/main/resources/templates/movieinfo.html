@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:replace="fragments/global_head"></link>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+    	body {    		
+  			background-image: url("https://wallpaperaccess.com/full/5206080.jpg");
+  			color: beige;
+    	}
+    	table#movieTable {
+    		table-layout: auto;
+			width: 100%;
+    	}
+    	table#movieTable span {
+    		color: beige;
+    		/*margin: 5px 5px;*/
+    	}
+    	table#movieTable th {
+    		border-top: 2px dashed white;
+    		border-bottom: 2px dashed white;
+    		border-left: 5px solid transparent;
+    	}
+    	table#movieTable td {
+    		color: white;
+    		font-size: 0.85em;
+    		vertical-align: top;
+    		padding: 10px 10px;
+    		margin: 15px 5px;
+    	}
+    	#plotCell, #posterCell {
+    		width: 400px;
+    	}
+    	#posterCell {
+    		padding: 10px 0px !important;
+    	}
+    </style>
+    <title>Movie Info</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="my-3">
+			<h4>Movie</h4>
+			<table class="table-striped" id="movieTable">
+		    <thead>
+		      <tr>
+		        <th><span>Title</span></th>
+		        <th><span>Year</span></th>
+		        <th><span>Rated</span></th>
+		        <th><span>Released</span></th>
+		        <th><span>Runtime</span></th>
+		        <th><span>Genre</span></th>
+		        <th><span>Director</span></th>
+		        <th><span>Writer</span></th>
+		        <th><span>Actors</span></th>
+		        <th><span>Plot</span></th>
+		        <th><span>Language</span></th>
+		        <th><span>Country</span></th>
+		        <th><span>Awards</span></th>
+		        <th><span>Poster</span></th>
+		        <th><span>Ratings</span></th>
+		      </tr>
+		    </thead>
+		
+		    <tbody>
+		    <!-- <tr th:each="movie: ${movieList}"> -->
+		        <tr>
+		            <td th:text="${movie.title}" />
+		            <td th:text="${movie.year}" />
+		            <td th:text="${movie.rated}" />
+		            <td th:text="${movie.released}" />
+		            <td th:text="${movie.runtime}" />
+		            <td th:text="${movie.genre}" />
+		            <td th:text="${movie.director}" />
+		            <td th:text="${movie.writer}" />
+		            <td th:text="${movie.actors}" />
+		            <td th:text="${movie.plot}" id="plotCell"/>
+		            <td th:text="${movie.language}" />
+		            <td th:text="${movie.country}" />
+		            <td th:text="${movie.awards}" />
+		            <td id="posterCell"><img alt="Movie Poster" th:src="${movie.poster}"></td>
+		            <td th:text="${movie.ratings.get('Rotten Tomatoes')}" />
+		        </tr>
+		    </tbody>
+		</table>
+		<!--  <img alt="Movie Poster" th:src="${movie.poster}">  -->
+		</div>
+	</div>
+
+</body>
+</html>

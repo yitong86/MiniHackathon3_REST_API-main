@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: '${DATABASE_CONN_STR}:imdb'
+    username: '${DATABASE_USER}:root'
+    password: '${DATABASE_PASS}:password'
+    driver-class-name: '${DATABASE_DRIVER_CLASS:org.mysql.cj.jdbc.Driver}'
+  devtools:
+    restart:
+      enabled: false
+
+  jpa:
+    generate-ddl: true
+    properties:
+      ddl-auto: update
+      hibernate:
+        dialect: '${DATABASE_SQL_DIALECT:org.hibernate.dialect.MySQLDialect}'
+        current_session_context_class: 'org.springframework.orm.hibernate5.SpringSessionContext'
+
+server:
+  port: '${SERVER_PORT:8081}'
